@@ -2,11 +2,10 @@ var app = angular.module('app', []);
 
 
 app.controller('controller', ['$scope', '$http', function($scope, $http){
-	$scope.artista = [];
 	$scope.criarArtista = {};
 
 	$scope.Create = function(){
-		$http.post('/api/artista/create', $scope.criar)
+		$http.post('/api/artista/create', $scope.criarArtista)
 		.success(function(data){
 			console.log(data);
 		})
