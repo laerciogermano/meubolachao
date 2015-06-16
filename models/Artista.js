@@ -21,7 +21,7 @@ module.exports = function(){
 			return callback({msg : 'Foto vazia'});
 
 		var Artista = mongoose.model('Artista');
-		Artista.findOne({nome : obj.nome}, function(err, data){
+		Artista.findOne({nome : obj.nome}).exec(function(err, data){
 			if(err)
 				return callback({msg : 'Erro ao encontrar artista'});
 			
@@ -40,7 +40,6 @@ module.exports = function(){
 
 
 	function getAll(callback){
-
 		var Artista = mongoose.model('Artista');
 		Artista.find({}).exec(function(err, data){
 			if(err)
@@ -50,9 +49,9 @@ module.exports = function(){
 		});
 	};
 
+
 	ArtistaSchema.methods.create = create;
 	ArtistaSchema.methods.getAll = getAll;
-
 	mongoose.model('Artista', ArtistaSchema);
 };
 
