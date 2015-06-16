@@ -11,6 +11,17 @@ module.exports = function(app){
 	});
 
 	app.post('/api/artista/create', function(req, res){
+
+		var params = req.body;
+
+		var newArtista = new Artista();
+
+		newArtista.create(params, function(err, data){
+
+			console.log(err);
+			console.log(data);
+
+		});
 		
 	});
 
