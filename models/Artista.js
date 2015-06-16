@@ -38,7 +38,21 @@ module.exports = function(){
 		});
 	};
 
+
+	function getAll(callback){
+
+		var Artista = mongoose.model('Artista');
+		Artista.find({}).exec(function(err, data){
+			if(err)
+				return callback({msg : 'Erro ao encontrar os artistas'});
+			
+			callback(false, data);
+		});
+	};
+
 	ArtistaSchema.methods.create = create;
+	ArtistaSchema.methods.getAll = getAll;
+
 	mongoose.model('Artista', ArtistaSchema);
 };
 
