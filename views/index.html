@@ -12,6 +12,14 @@
 		<input type='submit' value='Enviar'>
 	</form>
 
+	<button ng-click='getAll()'>Lista Todos</button>
+
+	<form ng-submit='getNome(objProcurar.nome)'>
+		<input type='text' ng-model='objProcurar.nome'>		
+		<input type='submit' value='Pesquisar'>
+	</form>
+
+
 	<table>
 		<thead>
 			<tr>

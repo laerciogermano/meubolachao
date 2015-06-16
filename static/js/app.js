@@ -4,6 +4,7 @@ var app = angular.module('app', []);
 app.controller('controller', ['$scope', '$http', function($scope, $http){
 	$scope.criarArtista = {};
 	$scope.artistas = [];
+	$scope.objProcurar = {};
 
 	function create(obj){
 		$http.post('/api/artista/create', obj)
@@ -25,11 +26,26 @@ app.controller('controller', ['$scope', '$http', function($scope, $http){
 		});
 	};
 
+
+	function getNome(nome){
+		$http.get('/api/artista/get/'+nome)
+		.success(function(data){
+
+			console.log(data);
+
+			$scope.artistas = data;
+		})
+		.error(function(data){
+			alert(data);
+		});
+	};
+
 	// bootstrap
-	getAll();
+	//getAll();
 
 	$scope.create = create;
 	$scope.getAll = getAll;
+	$scope.getNome = getNome;
 	
 }]);
 

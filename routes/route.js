@@ -24,6 +24,15 @@ module.exports = function(app){
 	});
 
 	app.get('/api/artista/get/:nome', function(req, res){
+		var nome = req.params.nome;
+		var newArtista = new Artista();
+
+		newArtista.getNome(nome, function(err, data){
+			if(err)
+				return res.status(400).json(err);
+			res.json(data);
+		});
+
 		
 	});
 
@@ -34,6 +43,9 @@ module.exports = function(app){
 	app.get('/api/artista/getall', function(req, res){
 		var newArtista = new Artista();
 		newArtista.getAll(function(err, data){
+
+			//console.log(err);
+			// // console.log(data);
 			if(err)
 				return res.status(400).json(err);
 

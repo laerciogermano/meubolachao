@@ -50,9 +50,36 @@ module.exports = function(){
 	};
 
 
+
+
+	function getNome(nome, callback){
+
+		if(!nome)
+			return callback({msg: 'O nome vazio'});
+		
+		var Artista = mongoose.model('Artista');	
+		Artista.find(
+
+			{nome: nome}
+
+		).exec(function(err, data){
+			if(err)
+				return callback({msg : 'Erro ao encontrar os artistas'});
+
+			callback(false, data);
+
+		});
+	}
+
+
 	ArtistaSchema.methods.create = create;
 	ArtistaSchema.methods.getAll = getAll;
+	ArtistaSchema.methods.getNome = getNome;
+
 	mongoose.model('Artista', ArtistaSchema);
 };
+
+
+
 
 
