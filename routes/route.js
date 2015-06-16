@@ -13,14 +13,13 @@ module.exports = function(app){
 	app.post('/api/artista/create', function(req, res){
 
 		var params = req.body;
-
 		var newArtista = new Artista();
 
 		newArtista.create(params, function(err, data){
+			if(err)
+				return res.status(400).json(err);
 
-			console.log(err);
-			console.log(data);
-
+			res.json(data);			
 		});
 		
 	});
