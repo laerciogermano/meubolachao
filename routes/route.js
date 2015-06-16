@@ -33,7 +33,11 @@ module.exports = function(app){
 	});
 
 	app.get('/api/artista/getall', function(req, res){
-	
+		Artista.getAll(params, function(err, data){
+			if(err)
+				return res.status(400).json(err);
+			res.json(data);
+		});
 	});
 
 };
