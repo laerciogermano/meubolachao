@@ -5,6 +5,15 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <body ng-controller='controller'>
+	
+	<form ng-submit='Create()'>
+		<input type='text' ng-model='criarArtista.nome'>
+		<input type='text' ng-model='criarArtista.foto'>
+		<input type='submit' value='Enviar'>
+	</form>
+
+
+
 	<script type="text/javascript" src='/static/js/angular.min.js'></script>
 	<script type="text/javascript" src='/static/js/app.js'></script>
 </body>
