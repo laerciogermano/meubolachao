@@ -71,10 +71,22 @@ module.exports = function(){
 		});
 	}
 
+	function removeByName(nome, callback){
+		if(!nome)
+			return callback({msg: 'nome vazio'});
+		var Artista = mongoose.model('Artista');
+		Artista.remove({nome:nome}).exec(function(err, data){
+			if(err)
+				return callback({msg: 'Erro ao remover artista'});
+			callback(false, data);
+		});
+	}
+
 
 	ArtistaSchema.methods.create = create;
 	ArtistaSchema.methods.getAll = getAll;
 	ArtistaSchema.methods.getNome = getNome;
+	ArtistaSchema.methods.remove = removeByName;
 
 	mongoose.model('Artista', ArtistaSchema);
 };

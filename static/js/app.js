@@ -40,9 +40,20 @@ app.controller('controller', ['$scope', '$http', function($scope, $http){
 		});
 	};
 
+	function removeByName(nome){
+		$http.get('/api/artista/remove/'+nome)
+		.success(function(data){
+			console.log(data);
+			$scope.artistas = data;
+		})
+		.error(function(data){
+			alert(data);
+		});
+	}
+
 	// bootstrap
 	//getAll();
-
+	$scope.removeByName = removeByName;
 	$scope.create = create;
 	$scope.getAll = getAll;
 	$scope.getNome = getNome;

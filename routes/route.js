@@ -37,6 +37,14 @@ module.exports = function(app){
 	});
 
 	app.get('/api/artista/remove/:nome', function(req, res){
+		var nome = req.params.nome;
+		var newArtista = new Artista()
+
+		newArtista.removeByName(nome, function(err, data) {
+			if(err)
+				return res.status(400).json(err);
+			res.json(data);
+		});
 		
 	});
 

@@ -25,12 +25,14 @@
 			<tr>
 				<th>Nome</th>
 				<th>Foto</th>
+				<th>Remover</th>
 			</tr>
 		</thead>
 		<tbody ng-repeat='artista in artistas'>
 			<tr>
 				<td>{{artista.nome}}</td>
 				<td>{{artista.foto}}</td>
+				<td> <input ng-submit='removeByName(artista.nome)' type='submit' value='Remover'> </td>
 			</tr>
 		</tbody>
 	</table>
