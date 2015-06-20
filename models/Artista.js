@@ -86,7 +86,7 @@ module.exports = function(){
 	ArtistaSchema.methods.create = create;
 	ArtistaSchema.methods.getAll = getAll;
 	ArtistaSchema.methods.getNome = getNome;
-	ArtistaSchema.methods.remove = removeByName;
+	ArtistaSchema.methods.removeByName = removeByName;
 
 	mongoose.model('Artista', ArtistaSchema);
 };

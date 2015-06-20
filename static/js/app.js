@@ -10,6 +10,7 @@ app.controller('controller', ['$scope', '$http', function($scope, $http){
 		$http.post('/api/artista/create', obj)
 		.success(function(data){
 			console.log(data);
+			getAll();
 		})
 		.error(function(data){
 			alert(data.msg);	
@@ -44,7 +45,7 @@ app.controller('controller', ['$scope', '$http', function($scope, $http){
 		$http.get('/api/artista/remove/'+nome)
 		.success(function(data){
 			console.log(data);
-			$scope.artistas = data;
+			getAll();
 		})
 		.error(function(data){
 			alert(data);
@@ -52,7 +53,7 @@ app.controller('controller', ['$scope', '$http', function($scope, $http){
 	}
 
 	// bootstrap
-	//getAll();
+	getAll();
 	$scope.removeByName = removeByName;
 	$scope.create = create;
 	$scope.getAll = getAll;

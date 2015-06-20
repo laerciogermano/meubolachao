@@ -32,7 +32,9 @@
 			<tr>
 				<td>{{artista.nome}}</td>
 				<td>{{artista.foto}}</td>
-				<td> <input ng-submit='removeByName(artista.nome)' type='submit' value='Remover'> </td>
+				<td> 
+					<button ng-click='removeByName(artista.nome)'>Remover</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
