@@ -2,7 +2,9 @@
 
 var mongoose = require('mongoose');
 var Artista = mongoose.model('Artista');
+var ArtistaMethods = new Artista();
 
+//middlewares
 
 module.exports = function(app){
 
@@ -10,11 +12,9 @@ module.exports = function(app){
 		res.render('index');
 	});
 
-	app.post('/api/artista/create', function(req, res){
+	app.post('/api/artista/create',function(req, res){
 		var params = req.body;
-		var newArtista = new Artista();
-
-		newArtista.create(params, function(err, data){
+		ArtistaMethods.create(params, function(err, data){
 			if(err)
 				return res.status(400).json(err);
 
@@ -25,9 +25,7 @@ module.exports = function(app){
 
 	app.get('/api/artista/get/:nome', function(req, res){
 		var nome = req.params.nome;
-		var newArtista = new Artista();
-
-		newArtista.getNome(nome, function(err, data){
+		ArtistaMethods.getNome(nome, function(err, data){
 			if(err)
 				return res.status(400).json(err);
 			res.json(data);
@@ -38,9 +36,7 @@ module.exports = function(app){
 
 	app.get('/api/artista/remove/:nome', function(req, res){
 		var nome = req.params.nome;
-		var newArtista = new Artista()
-
-		newArtista.removeByName(nome, function(err, data) {
+		ArtistaMethods.removeByName(nome, function(err, data) {
 			if(err)
 				return res.status(400).json(err);
 			res.json(data);
@@ -49,11 +45,7 @@ module.exports = function(app){
 	});
 
 	app.get('/api/artista/getall', function(req, res){
-		var newArtista = new Artista();
-		newArtista.getAll(function(err, data){
-
-			//console.log(err);
-			// // console.log(data);
+		ArtistaMethods.getAll(function(err, data){
 			if(err)
 				return res.status(400).json(err);
 

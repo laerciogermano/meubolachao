@@ -49,20 +49,14 @@ module.exports = function(){
 		});
 	};
 
-
-
-
 	function getNome(nome, callback){
-
 		if(!nome)
 			return callback({msg: 'O nome vazio'});
 		
 		var Artista = mongoose.model('Artista');	
-		Artista.find(
-
-			{nome: nome}
-
-		).exec(function(err, data){
+		Artista.find({
+			nome: nome
+		}).exec(function(err, data){
 			if(err)
 				return callback({msg : 'Erro ao encontrar os artistas'});
 
@@ -74,6 +68,7 @@ module.exports = function(){
 	function removeByName(nome, callback){
 		if(!nome)
 			return callback({msg: 'nome vazio'});
+		
 		var Artista = mongoose.model('Artista');
 		Artista.remove({nome:nome}).exec(function(err, data){
 			if(err)
