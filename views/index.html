@@ -1,46 +1,15 @@
-<html ng-app='app'>
+<html >
 <head>
 	<title>Meu Bolachão</title>
 	<meta charset='utf-8' />
 	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
-<body ng-controller='controller'>
-	
-	<form ng-submit='create(criarArtista)'>
-		<input type='text' ng-model='criarArtista.nome'>
-		<input type='text' ng-model='criarArtista.foto'>
-		<input type='submit' value='Enviar'>
-	</form>
+<body>
 
-	<button ng-click='getAll()'> Listar Todos </button>
-
-	<form ng-submit='getNome(objProcurar.nome)'>
-		<input type='text' ng-model='objProcurar.nome'>		
-		<input type='submit' value='Pesquisar'>
-	</form>
-
-
-	<table>
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Foto</th>
-				<th>Remover</th>
-			</tr>
-		</thead>
-		<tbody ng-repeat='artista in artistas'>
-			<tr>
-				<td>{{artista.nome}}</td>
-				<td>{{artista.foto}}</td>
-				<td> 
-					<button ng-click='removeByName(artista.nome)'>Remover</button>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<a href="artista.html">Artista</a>
+	<a href="album.html">Album</a>
 	
 	
-	<script type="text/javascript" src='/static/js/angular.min.js'></script>
-	<script type="text/javascript" src='/static/js/app.js'></script>
+	
 </body>
 </html>

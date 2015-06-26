@@ -12,6 +12,14 @@ module.exports = function(app){
 		res.render('index');
 	});
 
+	app.get('/artista.html', function(req, res){
+		res.render('artista');
+	});
+
+	app.get('/album.html', function(req, res){
+		res.render('album');
+	});
+
 	app.post('/api/artista/create',function(req, res){
 		var params = req.body;
 		ArtistaMethods.create(params, function(err, data){

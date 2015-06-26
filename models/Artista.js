@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var Album = mongoose.model('Album');
 var Schema = mongoose.Schema;
 
 module.exports = function(){
@@ -8,6 +9,9 @@ module.exports = function(){
 	var ArtistaSchema = new Schema({
 		nome : String,
 		foto : String
+		albuns : [
+			{type: Schema.Types.ObjectIsd, ref: 'Album'}
+		]
 	});
 
 	function create(obj, callback){
